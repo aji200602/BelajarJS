@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Function</title>
+</head>
+<body>
+    <h2>JavaScript Functions</h2>
+    <p>This Example calls a function which performs a calculation, and returns the result:</p>
+    <p id="demo"></p>
+
+    <h2>Variabel dan Tipe Data Java Script</h2>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <p id="output3"></p>
+
+    <h2>Contoh Penggunaan Operator dalam Javascript</h2>
+    <p id="arithmetic"></p>
+    <p id="comparison"></p>
+    <p id="logical"></p>
+    <p id="assignment"></p>
+
+    <h2>Contoh Perhitungan IPK Mahasisiwa</h2>
+    <label for="ipk">Masukkan IPK Mahasiswa</label>
+    <input type="number" id="ipk" step="0.01" min="0" max="4">
+    <button onclick="tentukanGrade()">Tentukan Grade</button>
+    <p id="hasilipk"></p>
+    <p id="kriteria"></p>
+    
+  
+     <h2>Grade IPK Mahasiswa</h2>
+    </header>
+    <label for="ipk">Masukkan IPK Mahasiswa:</label>
+    <input type="number" id="ipk" step="0.01" min="0" max="4">
+    <button onclick="tentukanGrade()">Tentukan Grade</button>
+    <p id="hasil"></p> 
+
+    <script>
+        function a(p1, p2, p3) {
+            return p1 * p2 + p3;
+        }
+        document.getElementById("demo").innerHTML = a(5, 5, 4);
+
+        //deklarasi variabel bisa let or const
+        const numberVariable = 42; // tipe data number
+        const stringVariable = "HELLOOOOOOOOOOOO WORLDD!" // tipe data string
+        const booleanVariable = true; // tipe data boolean
+
+        document.getElementById("output1").innerHTML = "Nilai Number Variable adalah:" + numberVariable;
+        document.getElementById("output2").innerHTML = "Nilai String Variable adalah:" + stringVariable;
+        document.getElementById("output3").innerHTML = "Nilai Boolean Variable adalah:" + booleanVariable;
+
+        //operator aritmatika
+        let x = 10;
+        let y = 5;
+
+        //dont forget use "` `" symbol
+        let arithmeticResult = `
+        Arithmetic ${x+y}<br>
+        Subtraction: ${x-y}<br>
+        Multiplication: ${x*y}<br>
+        Division: ${x/y}<br>
+        Modulus: ${x%y}<br>
+        Exponentiation: ${x**y}<br>
+        Increment: ${++x}<br>
+        Decrement: ${--y}
+        `;
+
+        document.getElementById("arithmetic").innerHTML = "The Arithmetic Result:" + arithmeticResult;
+
+        // Comparison, let dihapus tdkpapa karna sudh di deklarasikan di atas
+        x = 10;
+        y = 5;
+
+        let comparisonResult = `
+        Equal: ${x == y}<br>
+        Equal value & type: ${x === y}<br>
+        Not equal: ${x != y}<br>
+        Not equal value & type: ${x !== y}<br>
+        Greater than: ${x > y}<br>
+        Less than: ${x < y}<br>
+        Greater than or equal to: ${x >= y}<br>
+        Less than or equal to: ${x <= y}<br>
+        `;
+        document.getElementById('comparison').innerHTML = "The Comparison Operations Result: <br>" + comparisonResult;
+
+        // Logical
+        let p = true;
+        let q = false;
+
+        let logicalResult = `
+        AND: ${p && q}<br>
+        OR: ${p || q}<br>
+        NOT: ${!q}<br>
+        Ternary: ${p ? "TRUE":"FALSE"}<br>
+        `
+        document.getElementById('logical').innerHTML = "The Comparison Operations Result: <br>" + logicalResult;
+
+        // operator assignment
+        let m = 10;
+        m += 5; // m = m + 5
+        m -= 3; // m = m - 3
+        m *= 2; // m = m * 2
+        m /= 4; // m = m / 4
+        m % 3; // m = m % 3
+        let assignmentResult = `Final value of m: ${m}`;
+
+        document.getElementById("assignment").innerHTML = assignmentResult;
+
+        function tentukanGrade() {
+            let ipk = parseFloat(document.getElementById("ipk").value);
+            let grade = ipk;
+
+            if (ipk >= 3.5) {
+                document.getElementById("hasilipk").innerHTML = "Cumlaude"; 
+            } else if (ipk >= 3 && ipk < 3.5) {
+                document.getElementById("hasilipk").innerHTML = "Baik";      
+            } else {
+                document.getElementById("hasilipk").innerHTML = "Cukup";
+            }
+
+            document.getElementById("kriteria").innerHTML = "IPK:" + grade;
+        }
+
+        for (let i = 0; i < 10; i++) {
+            console.log(i);
+            
+        }
+
+        // contoh lain
+        function tentukanGrade() {
+            let ipk = parseFloat(document.getElementById("ipk").value);
+            let grade = "";
+            if (ipk > 3.5){
+                grade = "Cumlaude";
+            }
+            else if(ipk >= 3 && ipk <= 3.5){
+                grade = "Baik";
+            }
+            else {
+                grade = "Cukup"
+            }
+
+            document.getElementById("hasil").innerHTML = "Grade: " + grade
+        }
+
+        const targetNumber = Math.floor(Math.random() * 100) + 1;
+
+// Variabel untuk menyimpan jumlah percobaan
+let attempts = 0;
+let guess = 0;
+
+// Loop hingga tebakan benar
+while (guess !== targetNumber) {
+    // Buat tebakan random
+    guess = Math.floor(Math.random() * 100) + 1;
+    attempts++;
+}
+// GAME TEBAK NILAII 
+// console.log(`Tebakan berhasil setelah ${attempts} kali percobaan. Angka yang ditebak adalah ${targetNumber}.`);
+
+// let numbers = [];
+// for (let i = 0; i < 10; i++) {
+//     numbers.push(Math.floor(Math.random() * 100) + 1);
+// }
+// console.log("Array of random numbers", numbers);
+
+// // MENCARI NILAI MIN, MAX, AVERAGE DAN TOTAL
+// let total = 0;
+// let min = numbers[0]
+// let max = numbers [0]
+
+// for (i= 0; i < numbers.length; i++) {
+//     total += numbers[i]
+
+// if (numbers[i] < min) {
+//     min = numbers[i];
+// }
+// if (numbers[i] > max) {
+//     max = numbers[i];
+// }
+    
+// }
+// let average = total / numbers.length;
+
+// console.log("Total:", total);
+// console.log("Average:", average);
+// console.log("Minimum:", min);
+// console.log("Maximum:", max);
+
+function generateRandomArray(length, max) {
+    let array = [];
+    for (let i = 0; i < length; i++) {
+        array.push(Math.floor(Math.random() * max) + 1);
+    }
+    return array;
+}
+
+// Fungsi untuk menghitung total
+function calculateTotal(array) {
+    let total = 0;
+    for (let i = 0; i < array.length; i++) {
+        total += array[i];
+    }
+    return total;
+}
+
+// Fungsi untuk menghitung rata-rata
+function calculateAverage(array) {
+    let total = calculateTotal(array);
+    return total / array.length;
+}
+
+// Fungsi untuk menemukan nilai minimum
+function findMin(array) {
+    let min = array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i];
+        }
+    }
+    return min;
+}
+
+// Fungsi untuk menemukan nilai maksimum
+function findMax(array) {
+    let max = array[0];
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    return max;
+}
+
+// Menggunakan fungsi-fungsi di atas
+let numbers = generateRandomArray(10, 100);
+console.log("Array of random numbers:", numbers);
+
+let total = calculateTotal(numbers);
+let average = calculateAverage(numbers);
+let min = findMin(numbers);
+let max = findMax(numbers);
+
+console.log("Total:", total);
+console.log("Average:", average);
+console.log("Minimum:", min);
+console.log("Maximum:", max);
+
+
+
+
+    </script>
+</body>
+</html>
+
+<!-- Ctrl + J = memunculkan terminal -->
+ <!-- install Node.js -->
